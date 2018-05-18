@@ -10,10 +10,16 @@ namespace TeduShop.Data
 {
     public class TeduShopDbContext : DbContext
     {
+<<<<<<< HEAD
         //conection string: TeduShopConnection là tên chuỗi connection String đc tạo trong App.config
         public TeduShopDbContext() : base("TeduShopConnection") 
         {
             this.Configuration.LazyLoadingEnabled = false; //tắt chế độ lười load: sẽ đc khi load table cha thì nó sẽ tự động load table con.
+=======
+        public TeduShopDbContext() : base("TeduShopConnection")
+        {
+            this.Configuration.LazyLoadingEnabled = false;
+>>>>>>> feature/bai6
         }
 
         public DbSet<Footer> Footers { set; get; }
@@ -38,8 +44,11 @@ namespace TeduShop.Data
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
 
 
+<<<<<<< HEAD
         //ghi đè 1 pt của DbContext (class cha đang kế thừa). 
         //  pt này sẽ chạy khi ta khởi tạo entity framework
+=======
+>>>>>>> feature/bai6
         protected override void OnModelCreating(DbModelBuilder builder)
         {
 

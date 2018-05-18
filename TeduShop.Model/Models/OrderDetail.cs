@@ -7,9 +7,11 @@ namespace TeduShop.Model.Models
     public class OrderDetail
     {
         [Key]
+        [Column(Order = 1)] //có 2 trường đều là key thì phải có Order 1, 2 để phân biệt
         public int OrderID { set; get; }
 
         [Key]
+        [Column(Order = 2)]
         public int ProductID { set; get; }
 
         public int Quantitty { set; get; }
