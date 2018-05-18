@@ -7,10 +7,11 @@ namespace TeduShop.Model.Models
     public class ProductTag
     {
         [Key]
+        [Column(Order = 1)] //có 2 trường đều là key thì phải có Order 1, 2 để phân biệt
         public int ProductID { set; get; }
 
         [Key]
-        [Column(TypeName = "varchar")]
+        [Column(TypeName = "varchar", Order = 2)]
         [MaxLength(50)]
         public string TagID { set; get; }
 

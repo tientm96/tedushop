@@ -16,7 +16,7 @@ namespace TeduShop.Model.Models
         public int ID { set; get; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(50)] //chỉ có string hoặc array mới dùng maxlength.
         public string Name { set; get; }
 
         [Required]

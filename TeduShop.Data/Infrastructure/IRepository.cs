@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 
 namespace TeduShop.Data.Infrastructure
 {
+    //T đại diện cho kdl chưa biết, có thể làm việc với  bất cứ kdl nào.
     public interface IRepository<T> where T : class
     {
         // Marks an entity as new
