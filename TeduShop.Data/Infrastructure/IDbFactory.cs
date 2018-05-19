@@ -7,9 +7,4 @@ namespace TeduShop.Data.Infrastructure
     {
         TeduShopDbContext Init();
     }
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> feature/bai6
