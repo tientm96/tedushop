@@ -4,10 +4,7 @@ using System.Linq.Expressions;
 
 namespace TeduShop.Data.Infrastructure
 {
-<<<<<<< HEAD
-=======
     //T đại diện cho kdl chưa biết, có thể làm việc với  bất cứ kdl nào.
->>>>>>> feature/bai6
     public interface IRepository<T> where T : class
     {
         // Marks an entity as new
