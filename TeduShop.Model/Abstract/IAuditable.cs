@@ -2,6 +2,8 @@
 
 namespace TeduShop.Model.Abstract
 {
+    //các cột nhiều  table cùng có, ta đặt interface để dùng chung cho tiện.
+
     //thêm public cho interface, như thêm cho class
     public interface IAuditable
     {
