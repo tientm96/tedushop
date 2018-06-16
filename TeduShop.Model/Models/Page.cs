@@ -15,7 +15,8 @@ namespace TeduShop.Model.Models
         [MaxLength(256)]
         public string Name { set; get; }
 
-        [Column(TypeName = "varchar")] //string có  thể là varchar hay nvarchar. Ở đây chỉ ra chính xác kdl của nó.
+        //string có  thể là varchar hay nvarchar. Ở đây chỉ ra chính xác kdl của nó.
+        [Column(TypeName = "varchar")] 
         [MaxLength(256)]
         [Required]
         public string Alias { set; get; }

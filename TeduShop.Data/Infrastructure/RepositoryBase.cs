@@ -17,11 +17,14 @@ namespace TeduShop.Data.Infrastructure
         protected IDbFactory DbFactory
         {
             get;
-            private set;
+            private set; //readOnly
         }
 
         protected TeduShopDbContext DbContext
         {
+            //toán tử ??: nếu dataContext != null thì trả về dataContext.
+            //      nếu dataContext == null thì trả về DbFactory.Init().
+            //          Câu lệnh dưới còn đồng thời gán dataContext = DbFactory.Init()
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }
         #endregion

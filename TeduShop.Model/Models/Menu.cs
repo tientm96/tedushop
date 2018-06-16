@@ -8,8 +8,9 @@ namespace TeduShop.Model.Models
     {
         //-Với kiểu string, nếu không cho null thì phải có [Required];
         //      Nếu cho null thì KHÔNG có [Required].
-        //-Còn đối với int, nếu cho null thì phải public int? ID { set; get; }, có dấu ? sau int;
-        //      nếu không cho null thì cũng [Required] như string.
+
+        //-Còn đối với int, nếu CHO null thì phải public int? ID { set; get; }, có dấu ? sau int;
+        //      nếu KHÔNG cho null thì cũng [Required] như string.
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //ID tự tăng

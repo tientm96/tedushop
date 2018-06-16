@@ -10,7 +10,7 @@ namespace TeduShop.Model.Abstract
         [MaxLength(256)] //cho nó độ dài max trong db
         public string CreatedBy { set; get; }
 
-        public DateTime? UpdatedDate { set; get; }
+        public DateTime? UpdatedDate { set; get; } // ?: cho phép null.
 
         [MaxLength(256)]
         public string UpdatedBy { set; get; }

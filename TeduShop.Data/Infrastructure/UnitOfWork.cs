@@ -16,8 +16,12 @@ namespace TeduShop.Data.Infrastructure
             this.dbFactory = dbFactory;
         }
 
-        public TeduShopDbContext DbContext
+        //vì không có () nên đây chỉ là Property, KHÔNG phải method()
+        public TeduShopDbContext DbContext 
         {
+            //toán tử ??: nếu dbContext != null thì trả về dbContext.
+            //      nếu dbContext == null thì trả về dbFactory.Init().
+            //          Câu lệnh dưới còn đồng thời gán dbContext = dbFactory.Init()
             get { return dbContext ?? (dbContext = dbFactory.Init()); }
         }
 
