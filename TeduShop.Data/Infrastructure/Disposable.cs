@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
-    //IDisposable là Interface có sẵn: cho phép các class kế thừa từ nó sẽ tự động hủy.
+    // IDisposable là Interface có sẵn: cho phép các class kế thừa từ nó sẽ tự động hủy.
     public class Disposable : IDisposable
     {
         private bool isDisposed;

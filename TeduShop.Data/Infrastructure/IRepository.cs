@@ -5,7 +5,11 @@ using System.Linq.Expressions;
 
 namespace TeduShop.Data.Infrastructure
 {
-    //T đại diện cho kdl chưa biết, có thể làm việc với  bất cứ kdl nào.
+
+    // dùng Generic<T>  để có thể dùng cho cho tất cả class. IRepository<T> where T : class chỉ đơn giản là cách khai báo class của Generic
+
+    //Generic<T> đại diện cho kdl chưa biết, có thể làm việc với  bất cứ kdl nào.
+    //Interface này là khuôn mẫu của design pattern IRepository, cứ copy qua mà dùng.
     public interface IRepository<T> where T : class
     {
         // Marks an entity as new
@@ -27,6 +31,8 @@ namespace TeduShop.Data.Infrastructure
 
         T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null);
 
+
+        //includes: thêm các table con vào.
         IEnumerable<T> GetAll(string[] includes = null);
 
         IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null);

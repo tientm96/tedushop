@@ -5,6 +5,7 @@ using TeduShop.Model.Abstract;
 
 namespace TeduShop.Model.Models
 {
+    //[Table(nameof(ProductCategory))]
     [Table("ProductCategories")]
     public class ProductCategory : Auditable
     {
@@ -13,7 +14,7 @@ namespace TeduShop.Model.Models
         public int ID { set; get; }
 
         [Required]
-        [MaxLength(256)]
+        [MaxLength(256)] //nếu ko default sẽ là nvarchar(max).
         public string Name { set; get; }
 
         [Required]

@@ -17,7 +17,7 @@ namespace TeduShop.Model.Models
         public int ID { set; get; }
 
         [Required]
-        [MaxLength(50)] //chỉ có string hoặc array mới dùng maxlength.
+        [MaxLength(50)] //chỉ có string hoặc array mới dùng maxlength, nếu ko default sẽ là nvarchar(max).
         public string Name { set; get; }
 
         [Required]

@@ -17,7 +17,7 @@ namespace TeduShop.Model.Models
         public int ID { set; get; }
 
         [Required] //cần thiết, ko đc null
-        [MaxLength(50)]
+        [MaxLength(50)] // nếu ko default sẽ là nvarchar(max).
         public string Name { set; get; }
 
         //Vì table Menus có tham chiếu đến table MenuGroup bằng khóa ngoại GroupID.

@@ -26,7 +26,7 @@ namespace TeduShop.Model.Models
         [Required] //cần thiết, ko đc null
         public int CategoryID { set; get; }
 
-        [MaxLength(256)] //string: null thì ko cần Required
+        [MaxLength(256)] //string: null thì ko cần Required. cần có độ dài nhất định, nếu ko default sẽ là nvarchar(max).
         public string Image { set; get; }
 
         [MaxLength(500)]

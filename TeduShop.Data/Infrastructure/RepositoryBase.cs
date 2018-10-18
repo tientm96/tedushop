@@ -8,18 +8,21 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
+    //RepositoryBase cũng là design pattern có sẵn, nên copy vào dùng thôi.
     public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
         #region Properties
         private TeduShopDbContext dataContext;
         private readonly IDbSet<T> dbSet;
 
+        //vì không có () nên đây chỉ là Property, KHÔNG phải method()
         protected IDbFactory DbFactory
         {
             get;
             private set; //readOnly
         }
-
+        
+        //vì không có () nên đây chỉ là Property, KHÔNG phải method()
         protected TeduShopDbContext DbContext
         {
             //toán tử ??: nếu dataContext != null thì trả về dataContext.
@@ -29,6 +32,7 @@ namespace TeduShop.Data.Infrastructure
         }
         #endregion
 
+        //constructor
         protected RepositoryBase(IDbFactory dbFactory)
         {
             DbFactory = dbFactory;
@@ -119,6 +123,7 @@ namespace TeduShop.Data.Infrastructure
             return dataContext.Set<T>().Where<T>(predicate).AsQueryable<T>();
         }
 
+        //phân trang
         public virtual IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> predicate, out int total, int index = 0, int size = 20, string[] includes = null)
         {
             int skipCount = index * size;

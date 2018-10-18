@@ -7,6 +7,7 @@ using System.Linq;
 
 namespace TeduShop.Data.Repositories
 {
+    //xem giải thích cụ thể trong: ProductCategoryRepository
     public interface IPostRepository : IRepository<Post>
     {
         IEnumerable<Post> GetAllByTag(string tag, int pageIndex, int pageSize, out int totalRow);
@@ -29,6 +30,7 @@ namespace TeduShop.Data.Repositories
 
             totalRow = query.Count();
 
+            //pageIndex là page đang cần lấy.
             query = query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
 
             return query;

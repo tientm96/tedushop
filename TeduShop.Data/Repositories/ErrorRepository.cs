@@ -3,6 +3,7 @@ using TeduShop.Model.Models;
 
 namespace TeduShop.Data.Repositories
 {
+    //xem giải thích cụ thể trong: ProductCategoryRepository
     public interface IErrorRepository : IRepository<Error>
     {
     }
