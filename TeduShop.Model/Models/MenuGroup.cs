@@ -23,6 +23,8 @@ namespace TeduShop.Model.Models
         //Vì table Menus có tham chiếu đến table MenuGroup bằng khóa ngoại GroupID.
         //  Nên ở trong Menu.cs, ta đã khai báo khóa ngoại. Còn ở MenuGroup.cs này, ta phải xác
         //      nhận, để MenuGroups có thể lấy các Menus thông qua Foreignkey.
+
+        //Quan hệ 1-n: 1 menugroup có nhiều menu, thông qua khóa ngoại GroupID được tạo bên menu.
         public virtual IEnumerable<Menu> Menus { set; get; }
     }
 }
