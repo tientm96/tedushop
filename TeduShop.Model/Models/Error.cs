@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeduShop.Model.Models
 {
+    //table này: chứa các lỗi được log ra.
     [Table("Errors")]
     public class Error
     {
