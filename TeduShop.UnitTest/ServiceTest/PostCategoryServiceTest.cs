@@ -8,6 +8,7 @@ using TeduShop.Service;
 
 namespace TeduShop.UnitTest.ServiceTest
 {
+    //DÙNG MOCK ĐỂ TEST NGHIỆP VỤ: giả lập đối tượng
     [TestClass]
     public class PostCategoryServiceTest
     {
@@ -43,7 +44,7 @@ namespace TeduShop.UnitTest.ServiceTest
 
             //compare
             Assert.IsNotNull(result);
-            Assert.AreEqual(3, result.Count); //list có 3 ptu add ở trên.
+            Assert.AreEqual(5, result.Count); //list có 3 ptu add ở trên.
         }
 
         [TestMethod]

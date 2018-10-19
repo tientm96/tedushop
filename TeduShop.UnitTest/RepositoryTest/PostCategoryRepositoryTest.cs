@@ -13,7 +13,7 @@ namespace TeduShop.UnitTest.RepositoryTest
         IPostCategoryRepository objRepository;
         IUnitOfWork unitOfWork;
 
-        //thiết lập method chạy đầu tiên của class
+        //thiết lập method chạy đầu tiên của class, để khởi tạo các đối tượng của class test
         [TestInitialize]
         public void Initialize()
         {
@@ -25,12 +25,13 @@ namespace TeduShop.UnitTest.RepositoryTest
         [TestMethod]
         public void PostCategory_Repository_GetAll()
         {
-            var list = objRepository.GetAll().ToList();
-            Assert.AreEqual(5, list.Count); //vào db xem sl đang bao nhiêu
+            var list = objRepository.GetAll().ToList(); // với linq có tolist() hay toarray... thì mới bắt đầu truy vấn trả về list.
+            Assert.AreEqual(5, list.Count); //vào db xem sl đang bao nhiêu, 5 là số giả định
             //test case này đặt trước nên sẽ chạy trước.
             //rồi mới test phần cre bên dưới.
         }
 
+        // method này viết sau nên sẽ đc test sau.
         [TestMethod]
         public void PostCategory_Repository_Create()
         {
@@ -42,10 +43,23 @@ namespace TeduShop.UnitTest.RepositoryTest
             var result = objRepository.Add(category);
             unitOfWork.Commit();
 
+
+            //Các dạng so sánh AreEqual: so sánh bằng
+            //NotAreEqual: ss không bằng... tùy mình chọn tương ứng cho các test.
+
             Assert.IsNotNull(result);
-            Assert.AreEqual(18, result.ID); // so sánh 2 giá trị, mỗi lần
+            Assert.AreEqual(5, result.ID); // so sánh 2 giá trị, mỗi lần
                                 //test giá trị tăng lên 1, do db thêm vô 1
         }
+
+
+        /*Debug Test: nếu có method test việc debug đơn giản hơn nhiều, ko cần phải build solution(F5).
+         * +gán breakPoint vào bên trái như bt
+         * +kích phải lên màn hình chọn debug tests
+         * 
+         * Nếu muốn runtest ngay, ko debug thì vào: thanh công cụ Test->window->testExplore: click phải chon run select test
+         * kết quả ra dấu tích xanh thì test ok.
+         */
 
     }
 }
