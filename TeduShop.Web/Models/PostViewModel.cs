@@ -25,8 +25,8 @@ namespace TeduShop.Web.Models
 
         public int? ViewCount { set; get; }
 
-
-        //các tham số trong abstract class IAuditable, tại pr Model.  
+        //các thuộc tính dùng chung trong abstract class IAuditable tại pr Model, 
+        //nhưng ở ViewModel này ko tạo IAuditable, nên sẽ đưa hết các thuộc tính dùng chung này vào trong luôn.  
         //  vì nó có liên quan đến, nên cần copy qua.
         public DateTime? CreatedDate { set; get; }
 
@@ -42,6 +42,7 @@ namespace TeduShop.Web.Models
 
         public bool Status { set; get; }
 
+        //tạo khóa ngoại đến CategoryID, vì là viewModel nên đã bỏ dòng [ForeignKey("CategoryID")]
         public virtual PostCategoryViewModel PostCategory { set; get; }
 
         public virtual IEnumerable<PostTagViewModel> PostTags { set; get; }

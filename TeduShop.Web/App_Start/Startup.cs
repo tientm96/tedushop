@@ -13,7 +13,7 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using TeduShop.Data;
 
-//auto startup khi ứng dụng đc chạy.
+// cài đặt auto startup khi ứng dụng đc chạy.
 [assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
 
 namespace TeduShop.Web.App_Start
@@ -47,6 +47,7 @@ namespace TeduShop.Web.App_Start
                .Where(t => t.Name.EndsWith("Service"))
                .AsImplementedInterfaces().InstancePerRequest();
 
+            //gán tất cả các registor này vào 1 thùng chứa.
             Autofac.IContainer container = builder.Build();
 
             //thay thế cơ chế mặc định bằng autofac

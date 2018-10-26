@@ -9,10 +9,10 @@ namespace TeduShop.Web.Mappings
         public static void Configure()
         {
             //Map từ kiểu đối tượng Post, sang PostViewModel.
-            //Sau đó đăng ký vào trong hàm Application_Start() trong Global.asax.cs
+            //Sau đó đăng ký vào trong hàm Application_Start() trong file Global.asax.cs
             Mapper.CreateMap<Post, PostViewModel>();
             Mapper.CreateMap<PostCategory, PostCategoryViewModel>();
             Mapper.CreateMap<Tag, TagViewModel>();
         }
     }
-}
+}  

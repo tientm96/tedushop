@@ -8,6 +8,7 @@ using TeduShop.Web.Models;
 namespace TeduShop.Web.Infrastructure.Extensions
 {
     //class static là class mà chỉ có static method mà thôi.
+    //Xem lại lý thuyết về Extensions method trong file lý thuyết ctdlgt
     public static class EntityExtensions
     {
         /*Method UpdatePostCategory sẽ update class PostCategory.
@@ -20,7 +21,7 @@ namespace TeduShop.Web.Infrastructure.Extensions
             //copy từ Web.Models.PostCategoryViewModel vào, lấy mẫu để viết 
             //  lại các lệnh update.
 
-            //public int ID { set; get; }
+            //public int ID { set; get; } //copy vào để đây, nhìn và viết tương tự bên dưới, viết xong r xóa những cái này cũng đc.
             //public string Name { set; get; }
 
             //public string Alias { set; get; }

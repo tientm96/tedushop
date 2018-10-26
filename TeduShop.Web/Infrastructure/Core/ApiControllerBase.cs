@@ -12,8 +12,10 @@ namespace TeduShop.Web.Infrastructure.Core
 {
     public class ApiControllerBase : ApiController
     {
+        //Api này dùng cho các common method, nên bắt error ta cũng bắt trong này vì nó cũng dùng chung.
         private IErrorService _errorService;
 
+        //constructor
         public ApiControllerBase(IErrorService errorService)
         {
             this._errorService = errorService;
@@ -39,11 +41,13 @@ namespace TeduShop.Web.Infrastructure.Core
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
             }
+            //entity update lỗi
             catch (DbUpdateException dbEx)
             {
                 LogError(dbEx);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, dbEx.InnerException.Message);
             }
+            //exception khác
             catch (Exception ex)
             {
                 LogError(ex);
@@ -65,6 +69,7 @@ namespace TeduShop.Web.Infrastructure.Core
             }
             catch
             {
+                //bắt lỗi connect db
             }
         }
     }
