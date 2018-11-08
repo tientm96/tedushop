@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
+    /*
+     - UnitOfWork: đảm bảo sự toàn vẹn transaction, nghĩa là đảm bảo hết những thao tác tác có 
+     trên cùng 1 giao dịch đều thành công, 2 thao tác thì phải 2 thao tác thành công. 
+     */
+
     //UnitOfWork cũng là design pattern có sẵn, nên copy vào dùng thôi.
     public class UnitOfWork : IUnitOfWork
     {
@@ -26,10 +31,13 @@ namespace TeduShop.Data.Infrastructure
             get { return dbContext ?? (dbContext = dbFactory.Init()); }
         }
 
+        //UnitOfWork thiết kế method commit() để gọi đến savechange() DbContext, 
+        //  sau mỗi tác vụ đều gọi saveChange() lại, giúp đảm bảo transaction,
+        //  đảm bảo mọi tác vụ đều đc thực thi.
         public void Commit()
         {
             //với DbContext là property của dbContext, nên DbContext cũng như 1 đối tượng.
-            //dbContext là 1 đối tượng của TeduShopDbContext:DbContext
+            //+dbContext là 1 đối tượng của TeduShopDbContext:DbContext
             DbContext.SaveChanges();
         }
     }

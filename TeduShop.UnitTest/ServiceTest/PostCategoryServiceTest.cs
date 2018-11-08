@@ -8,6 +8,9 @@ using TeduShop.Service;
 
 namespace TeduShop.UnitTest.ServiceTest
 {
+    //Test nghiệp vụ (service): Test bằng kỹ thuật MOCK đối tượng, giả lập đối tượng:
+    //Trong extension moq có đối tượng ảo MOCK, đối tượng này sẽ cho biết mình đang test cho dạng repository nào.
+
     //DÙNG MOCK ĐỂ TEST NGHIỆP VỤ: giả lập đối tượng
     [TestClass]
     public class PostCategoryServiceTest
@@ -19,6 +22,8 @@ namespace TeduShop.UnitTest.ServiceTest
         private IPostCategoryService _categoryService;
         private List<PostCategory> _listCategory;
 
+
+        //thiết lập method chạy đầu tiên của class, để khởi tạo các đối tượng của class test
         [TestInitialize]
         public void Initialize()
         {
@@ -33,6 +38,7 @@ namespace TeduShop.UnitTest.ServiceTest
             };
         }
 
+        //bắt đầu test thì test method này đầu.
         [TestMethod]
         public void PostCategory_Service_GetAll()
         {
@@ -44,9 +50,10 @@ namespace TeduShop.UnitTest.ServiceTest
 
             //compare
             Assert.IsNotNull(result);
-            Assert.AreEqual(5, result.Count); //list có 3 ptu add ở trên.
+            Assert.AreEqual(5, result.Count); //list có 3 ptu add ở trên. vậy nên so sánh với 5 sẽ ra kq test này faild
         }
 
+        // method này viết sau nên sẽ đc test sau.
         [TestMethod]
         public void PostCategory_Service_Create()
         {

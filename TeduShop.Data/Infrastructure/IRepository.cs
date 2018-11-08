@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
+/*
+- Repository: là một lớp ảo hóa, là abstraction nằm giữa phần db và business, giúp cho việc tối ưu câu lệnh logic.
+        vd: các câu lệnh logic chung như "thêm, sửa, xóa, select, filer, phân trang..." 
+        nếu như có generic repository chung thì ko phải viết lại mỗi lần dùng, 
+        chỉ cần viết nếu như là các logic đặc biệt hơn thôi. 
+        => giúp ko bị duplicate code và giúp query dữ liệu nhanh hơn. 
+*/
+
 namespace TeduShop.Data.Infrastructure
 {
-
-    // dùng Generic<T>  để có thể dùng cho cho tất cả class. IRepository<T> where T : class chỉ đơn giản là cách khai báo class của Generic
+    // dùng Generic<T>  để có thể dùng cho cho tất cả class. 
+    //  IRepository<T> where T : class chỉ đơn giản là cách khai báo class của Generic
 
     //Generic<T> đại diện cho kdl chưa biết, có thể làm việc với  bất cứ kdl nào.
     //Interface này là khuôn mẫu của design pattern IRepository, cứ copy qua mà dùng.

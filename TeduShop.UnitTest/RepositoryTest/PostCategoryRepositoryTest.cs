@@ -6,6 +6,17 @@ using TeduShop.Model.Models;
 
 namespace TeduShop.UnitTest.RepositoryTest
 {
+    /*Debug Test: nếu có method test việc debug đơn giản hơn nhiều, ko cần phải build solution(F5).
+     * +gán breakPoint vào bên trái như bt
+     * +kích phải lên màn hình chọn debug tests
+     * 
+     * Nếu muốn runtest ngay, ko debug thì vào: thanh công cụ Test->window->testExplore: click phải chon run select test
+     * kết quả ra dấu tích xanh thì test ok.
+     * ----------------------------------------------
+     * -Repository trong Prj Data đã ăn theo EF, nó đã được EF test khi general ra, vậy nên ta chỉ cần test cho service là đủ.
+     *   ở đây vẫn có test repository là để cho biết, thực tế thì ko cần.
+     */
+
     [TestClass]
     public class PostCategoryRepositoryTest
     {
@@ -25,7 +36,7 @@ namespace TeduShop.UnitTest.RepositoryTest
         [TestMethod]
         public void PostCategory_Repository_GetAll()
         {
-            var list = objRepository.GetAll().ToList(); // với linq có tolist() hay toarray... thì mới bắt đầu truy vấn trả về list.
+            var list = objRepository.GetAll().ToList(); // với linq có tolist() hay toArray... thì mới bắt đầu truy vấn trả về list.
             Assert.AreEqual(5, list.Count); //vào db xem sl đang bao nhiêu, 5 là số giả định
             //test case này đặt trước nên sẽ chạy trước.
             //rồi mới test phần cre bên dưới.
@@ -46,20 +57,12 @@ namespace TeduShop.UnitTest.RepositoryTest
 
             //Các dạng so sánh AreEqual: so sánh bằng
             //NotAreEqual: ss không bằng... tùy mình chọn tương ứng cho các test.
+            //Có hình FullTESTMethods.PNG trong folder lý thuyết c#.
 
             Assert.IsNotNull(result);
             Assert.AreEqual(5, result.ID); // so sánh 2 giá trị, mỗi lần
                                 //test giá trị tăng lên 1, do db thêm vô 1
         }
-
-
-        /*Debug Test: nếu có method test việc debug đơn giản hơn nhiều, ko cần phải build solution(F5).
-         * +gán breakPoint vào bên trái như bt
-         * +kích phải lên màn hình chọn debug tests
-         * 
-         * Nếu muốn runtest ngay, ko debug thì vào: thanh công cụ Test->window->testExplore: click phải chon run select test
-         * kết quả ra dấu tích xanh thì test ok.
-         */
 
     }
 }

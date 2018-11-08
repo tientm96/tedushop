@@ -7,6 +7,20 @@ using System.Linq;
 
 namespace TeduShop.Service
 {
+    /* PROJECT SERVICE
+
+    -Nguyên tắt SOLID
+
+    +Mỗi class chỉ giữ nhóm trách nhiệm chuyên biệt hoặc duy nhất. Vd: class chứa tác vụ thêm, xóa, sửa sẽ không chứa những tác vụ khác.
+    +Open với extend và close với modify: nên extend chức năng có sẵn, thay vì modify nó, hạn chế chỉnh sửa code cũ.
+    +Các object của class con có thể thay thế class cha: định nghĩa class cha chung nhất, sao cho các class con có thể thay thế được.
+    +Tách Interface lớn thành nhiều Interface nhỏ, ta có thể đa kế thừa được.
+    +Module cấp cao ko phụ thuộc vào module cấp thấp, mà phải phụ thuộc vào abstraction.
+
+    vd: Tầng service ko phụ thuộc trực tiếp vào tầng repository, tầng repository không phụ thuộc trực tiếp vào tầng data. 
+    Ta ko add reference rồi new trực tiếp, mà phải dependence injection dùng abstraction.
+     */
+
     /*Ta ko nhất thiết phải tạo mỗi service cho mỗi table, vì ta có thể tạo 1 service thao tác trên nhiều table gọi nhiều repository.
      * vd: Post và PostTag thao tác trên cùng service.
      * 
@@ -38,13 +52,14 @@ namespace TeduShop.Service
     public class PostService : IPostService
     {
         /*Mặc dù có object, nhưng ta vẫn khai báo và khởi tạo qua Interface, đảm bảo quy tắc SOLID là các module tương tác qua abstraction. 
+         * => Đây là dùng cách Dependence Injection.
          */
         IPostRepository _postRepository;
         IUnitOfWork _unitOfWork;
 
         /* Constructor:
          * Cơ chế dependence Injection giúp tiêm các object (đã implement interface) tương ứng vào constructor, 
-         * ta chỉ cần cho nó biết dạng interface cần tiêm, truyền object implement nó vào thì interface sẽ tiêm object đó.
+         * ta chỉ cần cho nó biết dạng interface cần tiêm, truyền object implement nó vào thì interface sẽ tiêm object đó (object đã đc implement).
          * 
          * Khai báo bằng Interface để khi truyền object vào sẽ linh hoạt hơn, truyền vào object nào implement nó thì nó sẽ làm việc theo object đó.
          * Ở đây khi truyền vào ta sẽ truyền object của class PostRepository (đã implement IPostRepository), lúc này Dependence Injection sẽ tiêm theo obj của

@@ -2,7 +2,7 @@
 {
     public interface IUnitOfWork
     {
-        //method
+        //method 
         void Commit();
     }
 }

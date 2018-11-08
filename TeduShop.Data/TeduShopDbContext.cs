@@ -10,11 +10,14 @@ namespace TeduShop.Data
 {
     public class TeduShopDbContext : DbContext
     {
-        //constructor dùng từ khóa base để gọi đến constructor của lớp cha. trong DbContext có constructor là "public DbContext(string nameOrConnectionString)"
-        // "TeduShopConnection" là keyname của connectionString trong file App.config và web.config
+        //constructor dùng từ khóa base để gọi đến constructor của lớp cha, 
+        //  trong DbContext có constructor là "public DbContext(string nameOrConnectionString)"
+        //"TeduShopConnection" là keyname của connectionString trong file App.config và web.config,
+        //   keyname này là param truyền vào constructor của lớp cha.   
         public TeduShopDbContext() : base("TeduShopConnection")
         {
             //LazyLoading: khi ta load table cha thì nó không tự động include thêm table con.
+            //(tắt chế độ lazyloading đi, nếu để thì nó chỉ load đến table nào đang đc y/c thôi)
             this.Configuration.LazyLoadingEnabled = false;
         }
 
@@ -44,6 +47,7 @@ namespace TeduShop.Data
 
 
         //override method of DbContext: method này sẽ chạy khi ta khởi tạo EF.
+        // nếu ko làm gì thì cũng phải override cho đủ method implement.
         protected override void OnModelCreating(DbModelBuilder builder)
         {
         }

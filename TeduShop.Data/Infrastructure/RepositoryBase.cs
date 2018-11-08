@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infrastructure
 {
+    // +tạo RepositoryBase: thực thi các method trong Interface IRepository
+
     //RepositoryBase cũng là design pattern có sẵn, nên copy vào dùng thôi.
     public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
@@ -26,8 +28,8 @@ namespace TeduShop.Data.Infrastructure
         protected TeduShopDbContext DbContext
         {
             //toán tử ??: nếu dataContext != null thì trả về dataContext.
-            //      nếu dataContext == null thì trả về DbFactory.Init().
-            //          Câu lệnh dưới còn đồng thời gán dataContext = DbFactory.Init()
+            //  nếu dataContext == null thì nó được gán cho DbFactory.Init(), trả về dbFactory.Init().
+            //    Câu lệnh dưới còn đồng thời gán dataContext = DbFactory.Init()
             get { return dataContext ?? (dataContext = DbFactory.Init()); }
         }
         #endregion
