@@ -130,7 +130,6 @@ namespace TeduShop.Web.Api
         }
 
         [HttpDelete]
-
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
@@ -146,10 +145,10 @@ namespace TeduShop.Web.Api
                     _postCategoryService.Delete(id);
                     _postCategoryService.Save();
 
+                    //trả về response để gửi lên FE, ở đây ta chỉ trả về trạng thái code 200.
                     response = request.CreateResponse(HttpStatusCode.OK);
 
                 }
-                //trả về response để gửi lên FE, chỉ trả về trạng thái code 200.
                 return response;
             });
         }

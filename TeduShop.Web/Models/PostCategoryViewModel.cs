@@ -10,6 +10,33 @@ namespace TeduShop.Web.Models
         //copy từ Models của pr Model qua. 
         // Ở đây chỉ là các class bt, ko sử dụng để gen ra, nên bỏ hết các [key] hay [Required] đi.
         //Tên thuộc tính trong viewModel phải giống với dataModel, thì nó mới map được(ko tính những tên mới đc add trong viewModel).
+
+        /* Ở viewmodel nếu cần thì có thể add thêm các vaidation msg cũng được.
+           vd:
+                 public class Product
+                {
+
+                    [HiddenInput(DisplayValue = false)]
+                    public int ProductID { get; set; }
+
+                    [Required(ErrorMessage = "Please enter a product name")]
+                    public string Name { get; set; }
+                    [DataType(DataType.MultilineText)]
+
+                    [Required(ErrorMessage = "Please enter a description")]
+                    public string Description { get; set; }
+
+                    [Required] [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
+                    public decimal Price { get; set; }
+
+                    [Required(ErrorMessage = "Please specify a category")]
+                    public string Category { get; set; }
+
+                    public byte[] ImageData { get; set; }
+                    public string ImageMimeType { get; set; }
+                }
+         */
+
         public int ID { set; get; }
         public string Name { set; get; }
 
